@@ -29,29 +29,57 @@
     }
 }
 
-- (void) viewDidLoad {
+// - (void) viewDidLoad {
 
-    CGRect statusBarFrame = [self invertFrameIfNeeded:[UIApplication sharedApplication].statusBarFrame];
-    statusBarFrame.size.height = STATUSBAR_HEIGHT;
-    // simplified from: http://stackoverflow.com/a/25669695/219684
+//     CGRect statusBarFrame = [self invertFrameIfNeeded:[UIApplication sharedApplication].statusBarFrame];
+//     statusBarFrame.size.height = STATUSBAR_HEIGHT;
+//     // simplified from: http://stackoverflow.com/a/25669695/219684
 
-    UIToolbar* bgToolbar = [[UIToolbar alloc] initWithFrame:statusBarFrame];
-    bgToolbar.barStyle = UIBarStyleDefault;
-    [bgToolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [self.view addSubview:bgToolbar];
+//     UIToolbar* bgToolbar = [[UIToolbar alloc] initWithFrame:statusBarFrame];
+//     bgToolbar.barStyle = UIBarStyleDefault;
+//     [bgToolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+//     [self.view addSubview:bgToolbar];
 
-    [super viewDidLoad];
-}
+//     [super viewDidLoad];
+// }
 
-- (CGRect) invertFrameIfNeeded:(CGRect)rect {
-    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-        CGFloat temp = rect.size.width;
-        rect.size.width = rect.size.height;
-        rect.size.height = temp;
-    }
-    rect.origin = CGPointZero;
-    return rect;
-}
+// - (CGRect) invertFrameIfNeeded:(CGRect)rect {
+//     if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+//         CGFloat temp = rect.size.width;
+//         rect.size.width = rect.size.height;
+//         rect.size.height = temp;
+//     }
+//     rect.origin = CGPointZero;
+//     return rect;
+// }
+
+	- (void) viewDidLoad {
+	
+	    CGRect frame = [UIApplication sharedApplication].statusBarFrame;
+	
+	    // simplified from: http://stackoverflow.com/a/25669695/219684
+	
+	    UIToolbar* bgToolbar = [[UIToolbar alloc] initWithFrame:[self invertFrameIfNeeded:frame]];
+	    bgToolbar.barStyle = UIBarStyleDefault;
+	    [bgToolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+	    [self.view addSubview:bgToolbar];
+	
+	    [super viewDidLoad];
+	}
+	
+	- (CGRect) invertFrameIfNeeded:(CGRect)rect {
+	    // We need to invert since on iOS 7 frames are always in Portrait context
+	
+	        if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+	            CGFloat temp = rect.size.width;
+	            rect.size.width = rect.size.height;
+	            rect.size.height = temp;
+	            rect.origin = CGPointZero;
+	        }
+	    
+	    return rect;
+	}
+
 
 #pragma mark CDVScreenOrientationDelegate
 
