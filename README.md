@@ -2,6 +2,40 @@
 title: Inappbrowser
 description: Open an in-app browser window.
 ---
+
+Replace STATUSBAR_HEIGHT TO 0 FROM 20 in CDVWKInAppBrowser.m
+
+#define    STATUSBAR_HEIGHT 0 //20.0
+
+Replaced below code in file CDVInAppBrowserNavigationController.m
+	- (void) viewDidLoad {
+	
+	    CGRect frame = [UIApplication sharedApplication].statusBarFrame;
+	
+	    // simplified from: http://stackoverflow.com/a/25669695/219684
+	
+	    UIToolbar* bgToolbar = [[UIToolbar alloc] initWithFrame:[self invertFrameIfNeeded:frame]];
+	    bgToolbar.barStyle = UIBarStyleDefault;
+	    [bgToolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+	    [self.view addSubview:bgToolbar];
+	
+	    [super viewDidLoad];
+	}
+	
+	- (CGRect) invertFrameIfNeeded:(CGRect)rect {
+	    // We need to invert since on iOS 7 frames are always in Portrait context
+	
+	        if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+	            CGFloat temp = rect.size.width;
+	            rect.size.width = rect.size.height;
+	            rect.size.height = temp;
+	            rect.origin = CGPointZero;
+	        }
+	    
+	    return rect;
+	}
+
+
 <!--
 # license: Licensed to the Apache Software Foundation (ASF) under one
 #         or more contributor license agreements.  See the NOTICE file
