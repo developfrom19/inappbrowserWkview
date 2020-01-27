@@ -8,6 +8,7 @@ Replace STATUSBAR_HEIGHT TO 0 FROM 20 in CDVWKInAppBrowser.m
 #define    STATUSBAR_HEIGHT 0 //20.0
 
 Replaced below code in file CDVInAppBrowserNavigationController.m
+	
 	- (void) viewDidLoad {
 	
 	    CGRect frame = [UIApplication sharedApplication].statusBarFrame;
