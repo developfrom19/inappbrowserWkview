@@ -24,7 +24,7 @@ description: Open an in-app browser window.
 -->
 
 
-# Changes made on this plugin
+# Changes made on this plugin as of 01/2020
 
 Fix - This plugin works well with cordova-plugin-wkwebview-engine.
 Forked based on the solution posted on https://github.com/apache/cordova-plugin-inappbrowser/pull/534
