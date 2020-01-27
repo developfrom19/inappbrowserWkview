@@ -26,7 +26,7 @@ description: Open an in-app browser window.
 
 # Changes made on this plugin
 
-Fix - This plugin works well with cordova-plugin-wkwebview-engine
+Fix - This plugin works well with cordova-plugin-wkwebview-engine.
 Forked based on the solution posted on https://github.com/apache/cordova-plugin-inappbrowser/pull/534
 
 Fix - To hide Status-bar in inAppBrowser
