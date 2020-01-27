@@ -26,11 +26,16 @@ description: Open an in-app browser window.
 
 # Changes made on this plugin
 
+Fix - This plugin works well with cordova-plugin-wkwebview-engine
+Forked based on the solution posted on https://github.com/apache/cordova-plugin-inappbrowser/pull/534
+
+Fix - To hide Status-bar in inAppBrowser
 Replace STATUSBAR_HEIGHT TO 0 FROM 20 in CDVWKInAppBrowser.m
 
 #define    STATUSBAR_HEIGHT 0 //20.0
 
-Replaced below code in file CDVInAppBrowserNavigationController.m
+Fix - To hide the gray-line on top left which occurs on orientation change
+Replace below code in file CDVInAppBrowserNavigationController.m
 	
 	- (void) viewDidLoad {
 	
