@@ -88,6 +88,7 @@
         },
 
         insertCSS: function (injectDetails, cb) {
+            //TEST CLONE
             if (injectDetails.code) {
                 exec(cb, null, 'InAppBrowser', 'injectStyleCode', [injectDetails.code, !!cb]);
             } else if (injectDetails.file) {
