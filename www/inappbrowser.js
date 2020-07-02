@@ -96,6 +96,11 @@
             } else {
                 throw new Error('insertCSS requires exactly one of code or file to be specified');
             }
+        },
+
+        //Custom Dev - Resize
+        resizeiab:function (strWindowFeatures) {
+            exec(null, null, 'InAppBrowser', 'resizeiab', [strWindowFeatures]);
         }
     };
 
