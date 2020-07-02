@@ -314,7 +314,9 @@ static CDVWKInAppBrowser* instance = nil;
     
     [self.inAppBrowserViewController navigateTo:url];
     if (!browserOptions.hidden) {
-        [self show:nil withNoAnimate:browserOptions.hidden];
+     //Custom Dev - Resize - Start 
+       [self show:nil withNoAnimate:browserOptions.hidden allOptions:browserOptions];
+     //Custom Dev - Resize - End
     }
 }
 
