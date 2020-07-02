@@ -48,6 +48,12 @@
 @property (nonatomic, assign) BOOL disallowoverscroll;
 @property (nonatomic, copy) NSString* beforeload;
 
+//Custom Dev - Resize - Start
+@property (nonatomic, copy) NSNumber* left;
+@property (nonatomic, copy) NSNumber* top;
+@property (nonatomic, copy) NSNumber* width;
+@property (nonatomic, copy) NSNumber* height;
+//Custom Dev - Resize - End
 + (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
 
 @end
